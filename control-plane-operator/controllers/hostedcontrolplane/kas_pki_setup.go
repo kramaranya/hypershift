@@ -123,7 +123,6 @@ func (r *HostedControlPlaneReconciler) setupKASClientSigners(
 	if err != nil {
 		return err
 	}
-	totalClientCABundle = append(totalClientCABundle, kasToKubeletSigner)
 	kubeletClientCABundle = append(kubeletClientCABundle, kasToKubeletSigner)
 
 	// KAS to kubelet client cert
