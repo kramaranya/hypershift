@@ -21,6 +21,7 @@ import (
 	securityv1 "github.com/openshift/api/security/v1"
 	agentv1 "github.com/openshift/cluster-api-provider-agent/api/v1beta1"
 	"github.com/spf13/cobra"
+	admissionregistrationv1beta1 "k8s.io/api/admissionregistration/v1beta1"
 	appsv1 "k8s.io/api/apps/v1"
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -487,6 +488,7 @@ func DumpGuestCluster(ctx context.Context, log logr.Logger, kubeconfig string, d
 		// https://github.com/openshift/api/blob/2bde012f248a5172dcde2f7104caf0726cf6d93a/config/v1/types_cluster_version.go#L266-L270
 		&snapshotv1.VolumeSnapshotClass{},
 		&snapshotv1.VolumeSnapshotContent{},
+		&admissionregistrationv1beta1.ValidatingAdmissionPolicy{},
 	)
 
 	resourceList := strings.Join(resourceTypes(resources), ",")
